@@ -1,0 +1,90 @@
+<!--
+#========================================================================
+#
+# Tool Name	: Windows 10 Profile Generator
+# Version:	: 1.0	
+# Author 	: Damien VAN ROBAEYS
+# Date 		: 14/06/2016
+#
+#========================================================================
+-->
+
+<Controls:MetroWindow 
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        Title="MDT Light version - v1.0" 
+        Width="450" 
+        Height="270"  
+		ResizeMode="NoResize"
+		>
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- Create Metro Style  -->
+                <ResourceDictionary Source=".\resources\Icons.xaml" />
+                <ResourceDictionary Source=".\resources\custom.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Cobalt.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,10,0,0">			
+
+			<TabControl x:Name="Tab_Control" HorizontalAlignment="Left" Height="240"  VerticalAlignment="Top" Width="400"  Margin="5,0,0,0">
+				<TabItem Header="Master sources" Margin="0,0,0,0">
+					<StackPanel>				
+						<StackPanel Orientation="Horizontal"  FlowDirection="LeftToRight" Margin="0,10,0,0" HorizontalAlignment="Left">
+							<Label Content="Select your master sources" Margin="0,0,0,0" Width="300" FontSize="15"></Label>			
+						</StackPanel>		
+						
+						<StackPanel Orientation="Horizontal"  FlowDirection="LeftToRight" Margin="0,10,0,0" HorizontalAlignment="Left">
+							<Button x:Name="Browse_DeploymentShare" Content="Browse"  Margin="0,0,0,0" Width="60" Height="26"></Button>			
+							<TextBox x:Name="DeploymentShare_Textbox" Margin="4,0,0,0" Width="200" Height="19"></TextBox>		
+						</StackPanel>
+												
+						<StackPanel Orientation="Horizontal"  FlowDirection="LeftToRight" Margin="0,0,0,0" HorizontalAlignment="Left">
+							<Label Content="Select the Deployment Share folder Deploy folder." Margin="0,10,0,0" Width="350" FontSize="15"></Label>			
+						</StackPanel>																	
+					</StackPanel>	
+				</TabItem>
+				
+				<TabItem Header="Module" Margin="0,0,0,0" FontSize="12">
+					<StackPanel>					
+						<StackPanel Orientation="Horizontal"  FlowDirection="LeftToRight" Margin="0,0,0,0" HorizontalAlignment="Left">
+							<Label Content="Select your MDT sources" Margin="0,0,0,0" Width="300" FontSize="15"></Label>			
+						</StackPanel>						
+										
+						<StackPanel Orientation="Horizontal"  FlowDirection="LeftToRight" Margin="0,5,0,0" HorizontalAlignment="Left">
+							<Button x:Name="Browse_MDT" Content="Browse"  Margin="0,0,0,0" Width="60" Height="26"></Button>			
+							<TextBox x:Name="MDT_Textbox" Margin="4,0,0,0" Width="200" Height="19"></TextBox>		
+						</StackPanel>
+						
+						<StackPanel Orientation="Horizontal"  FlowDirection="LeftToRight" Margin="0,5,0,0" HorizontalAlignment="Left">
+							<Label Content="Select your ADK sources" Margin="0,0,0,0" Width="300" FontSize="15"></Label>			
+						</StackPanel>						
+										
+						<StackPanel Orientation="Horizontal"  FlowDirection="LeftToRight" Margin="0,5,0,0" HorizontalAlignment="Left">
+							<Button x:Name="Browse_ADK" Content="Browse"  Margin="0,0,0,0" Width="60" Height="26"></Button>			
+							<TextBox x:Name="ADK_Textbox" Margin="4,0,0,0" Width="200" Height="19"></TextBox>		
+						</StackPanel>						
+					</StackPanel>	
+				</TabItem>							
+			</TabControl>
+        </StackPanel>
+		
+		
+        <StackPanel VerticalAlignment="Bottom" Orientation="Vertical" HorizontalAlignment="Center" Margin="0,0,0,0">
+            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                <Button x:Name="Run_Tool" Content="Launch MDT Portable version"  Width="450" ></Button>				
+            </StackPanel>
+        </StackPanel> 
+	
+    </Grid>
+</Controls:MetroWindow>

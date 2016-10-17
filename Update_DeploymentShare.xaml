@@ -1,0 +1,58 @@
+<!--
+#========================================================================
+#
+# Tool Name	: Windows 10 Profile Generator
+# Version:	: 1.0	
+# Author 	: Damien VAN ROBAEYS
+# Date 		: 14/06/2016
+#
+#========================================================================
+-->
+
+<Controls:MetroWindow 
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        Title="Update Deployment Share" 
+        Width="285" 
+        Height="160"  
+		ResizeMode="NoResize"
+		>
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- Create Metro Style  -->
+                <ResourceDictionary Source=".\resources\Icons.xaml" />
+                <ResourceDictionary Source=".\resources\custom.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Cobalt.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,10,0,0">			
+            <GroupBox Header="Choose an update method" FlowDirection="RightToLeft" Height="75" Margin="0,0,0,0" Width="260" HorizontalAlignment="left" Background="DodgerBlue">	
+                <StackPanel>
+					<StackPanel Orientation="Horizontal"  FlowDirection="LeftToRight" Margin="0,5,0,0" HorizontalAlignment="Center">
+						<!--<Label Content="Select a method" Margin="4,0,0,0" Width="110"></Label>-->
+						<ComboBox x:Name="Choose_my_Update" SelectedIndex="0" Text="Choose" Height="25" Width="230" Margin="0,0,0,0">									
+							<ComboBoxItem x:Name="Update_Optimize" Content="Optimize the boot image updating process"></ComboBoxItem>
+							<ComboBoxItem x:Name="Update_Optimize_compress" Content="Optimize and compress the boot image"></ComboBoxItem>							
+							<ComboBoxItem x:Name="Update_Regenerate" Content="Completely regenerate the boot images"></ComboBoxItem>							
+						</ComboBox>       
+					</StackPanel>
+				</StackPanel>							
+			</GroupBox>		
+
+            <StackPanel Orientation="Horizontal" Margin="0,7,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+				<Button x:Name="Run_Update" Content="Update"  Height="20" Width="260"></Button>		
+			</StackPanel>			
+			
+        </StackPanel>
+    </Grid>
+</Controls:MetroWindow>

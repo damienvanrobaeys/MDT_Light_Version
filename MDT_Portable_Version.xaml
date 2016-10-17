@@ -1,0 +1,336 @@
+﻿<!--
+#========================================================================
+#
+# Tool Name	: Windows 10 Profile Generator
+# Version:	: 1.0	
+# Author 	: Damien VAN ROBAEYS
+# Date 		: 14/06/2016
+#
+#========================================================================
+-->
+<Controls:MetroWindow 
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"		
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        Title="MDT Light version - v1.0" Height="380" Width="800" WindowStyle="None" ResizeMode="NoResize"
+		>
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- Create Metro Style  -->
+                <ResourceDictionary Source=".\resources\Icons.xaml" />
+                <ResourceDictionary Source=".\resources\custom.xaml" /> 
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Cobalt.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+	
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>	
+            <Button x:Name="Open_Checking_part" ToolTip="Open the tool documentation">
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="15" Height="15" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_book_open_text_image}" />
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                </StackPanel>
+            </Button>
+			
+            <Button x:Name="Open_Settings" ToolTip="Open more settings">
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="15" Height="15" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_settings}" />
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                </StackPanel>
+            </Button>			
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>		
+
+
+
+    <Controls:MetroWindow.Flyouts>
+        <Controls:FlyoutsControl>
+            <Controls:Flyout x:Name="FlyOutContent" Position="Right" Width="220"  Theme="Dark" Grid.RowSpan="4" IsPinned="False" Opacity="0.93" >
+                <Grid>
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Vertical" FlowDirection="LeftToRight" Width="200" HorizontalAlignment="Left" Margin="10,-15,0,0">
+                            <Label Content="Browse another Deployment Share" Margin="0,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Foreground="White"/>
+                        </StackPanel>					
+					
+                        <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight" Width="200" HorizontalAlignment="Left" Margin="10,0,0,0">
+                            <Button x:Name="Browse_other_Deploy" Content="Browse" Margin="10,5,0,0" Width="75"/>
+                            <TextBox x:Name="Browse_other_Deploy_textbox" Height="23" Margin="5,5,0,0"  Text="" VerticalAlignment="Top" Width="105"/>
+                        </StackPanel>
+						
+						
+						
+                        <StackPanel Orientation="Vertical" FlowDirection="LeftToRight" Width="200" HorizontalAlignment="Left" Margin="10,0,0,0">
+                            <Label Content="New Deployment Share" Margin="0,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Foreground="White"/>
+                        </StackPanel>					
+					
+                        <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight" Width="200" HorizontalAlignment="Left" Margin="10,0,0,0">
+                            <TextBox x:Name="New_Deploymentshare_Name" Height="23" Margin="10,5,0,0"  Text="" VerticalAlignment="Top" Width="75"/>
+                            <Button x:Name="New_Deploy_Path" Content="Path" Margin="5,5,0,0" Width="48"/>
+                            <Button x:Name="Create_New_Deploy" Content="Create" Margin="5,5,0,0" Width="48"/>														
+                        </StackPanel>	
+
+                        <StackPanel Orientation="Vertical" FlowDirection="LeftToRight" Width="200" HorizontalAlignment="Left" Margin="10,0,0,0">
+                            <CheckBox Content="Open this Deployment Share" x:Name="Open_New_Deploy_CheckBox" Margin="10,10,0,0"  Width="200" Foreground="White"/>
+						</StackPanel>							
+
+					
+					
+                        <StackPanel Orientation="Vertical" FlowDirection="LeftToRight" Width="200" HorizontalAlignment="Left" Margin="10,0,0,0">
+                            <Label Content="Browse another MDT Module" Margin="0,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Foreground="White"/>
+                        </StackPanel>					
+					
+                        <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight" Width="200" HorizontalAlignment="Left" Margin="10,0,0,0">
+                            <Button x:Name="Browse_Other_MDT_Module" Content="Browse" Margin="10,5,0,0" Width="75"/>
+                            <TextBox x:Name="Browse_Other_MDT_Module_textbox" Height="23" Margin="5,5,0,0"  Text="" VerticalAlignment="Top" Width="105"/>
+                        </StackPanel>	
+
+						
+                        <StackPanel Orientation="Vertical" FlowDirection="LeftToRight" Width="200" HorizontalAlignment="Left" Margin="10,0,0,0">
+                            <Label Content="Browse another ADK Module" Margin="0,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Foreground="White"/>
+                        </StackPanel>					
+					
+                        <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight" Width="200" HorizontalAlignment="Left" Margin="10,0,0,0">
+                            <Button x:Name="Browse_Other_ADK_Module" Content="Browse" Margin="10,5,0,0" Width="75"/>
+                            <TextBox x:Name="Browse_Other_ADK_Module_textbox" Height="23" Margin="5,5,0,0"  Text="" VerticalAlignment="Top" Width="105"/>
+                        </StackPanel>							
+                    </StackPanel>
+                </Grid>
+            </Controls:Flyout>
+			
+			
+           <Controls:Flyout x:Name="FlyOutContent2" Position="Right" Width="220"  Theme="Accent" Grid.RowSpan="4" IsPinned="False" Opacity="0.93" >
+                <Grid>
+                    <StackPanel Orientation="Vertical">
+				
+                        <StackPanel Orientation="Vertical" FlowDirection="LeftToRight" Width="200" HorizontalAlignment="Left" Margin="10,-15,0,0">
+                            <Label Content="Deployment Share infos" Margin="0,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Foreground="White"/>
+                        </StackPanel>					
+					
+                        <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight" Width="200" HorizontalAlignment="Left" Margin="10,0,0,0">
+                            <Label Content="Path" Margin="0,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Foreground="White"/>
+                            <TextBox x:Name="DS_Path_Info" Height="23" Margin="5,10,0,0"  Text="" VerticalAlignment="Top" Width="150"/>						
+                        </StackPanel> 
+						
+                        <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight" Width="200" HorizontalAlignment="Left" Margin="10,0,0,0">
+                            <Label Content="Version:" Margin="0,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Foreground="White"/>
+                            <Label x:Name="MDT_Version" Height="23" Margin="5,10,0,0"  VerticalAlignment="Top" Width="150"/>						
+                        </StackPanel> 	
+					
+						
+                        <StackPanel Orientation="Vertical" FlowDirection="LeftToRight" Width="200" HorizontalAlignment="Left" Margin="10,10,0,0">
+                            <Label Content="Modules path infos" Margin="0,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Foreground="White"/>
+                        </StackPanel>					
+					
+                        <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight" Width="200" HorizontalAlignment="Left" Margin="10,0,0,0">
+                            <Label Content="MDT" Margin="0,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Foreground="White"/>
+                            <TextBox x:Name="MDT_Module_path" Height="23" Margin="5,10,0,0"  Text="" VerticalAlignment="Top" Width="150"/>						
+                        </StackPanel> 		
+
+                        <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight" Width="200" HorizontalAlignment="Left" Margin="10,0,0,0">
+                            <Label Content="ADK" Margin="0,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Foreground="White"/>
+                            <TextBox x:Name="ADK_Module_path" Height="23" Margin="5,10,0,0"  Text="" VerticalAlignment="Top" Width="150"/>						
+                        </StackPanel> 	
+
+                        <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight" Width="200" HorizontalAlignment="Left" Margin="10,0,0,0">
+                            <Label Content="Version:" Margin="0,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Foreground="White"/>
+                            <Label x:Name="MDT_module_version" Height="23" Margin="5,10,0,0"  VerticalAlignment="Top" Width="150"/>						
+                        </StackPanel> 		
+
+                        <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight" Width="200" HorizontalAlignment="Left" Margin="10,0,0,0">
+                            <Label x:Name="MDT_Module_Check" Height="23" Margin="5,10,0,0"  VerticalAlignment="Top" Width="150"/>						
+                        </StackPanel> 							
+ 
+ 
+                     </StackPanel>
+
+ 
+                </Grid>
+            </Controls:Flyout>			
+			
+			
+			
+			
+        </Controls:FlyoutsControl>
+    </Controls:MetroWindow.Flyouts>
+
+
+    <Grid Background="white">    
+		<StackPanel>		
+			<StackPanel Margin="10,20,10,10" HorizontalAlignment="Left" VerticalAlignment="Top" Height="380" Orientation="Horizontal">	
+
+				<StackPanel>
+					<TabControl x:Name="Tab_Control" HorizontalAlignment="Left" Height="300"  VerticalAlignment="Top" Width="700" TabStripPlacement="Left" Margin="5,0,0,0">
+						<TabItem Header="Applications" Margin="0,0,0,0">
+							<Grid Background="CornFlowerBlue">
+								<DataGrid SelectionMode="Single"  Name="DataGrid_Applications"  ItemsSource="{Binding}"  Margin="2,2,2,2" >
+									<DataGrid.Columns>						
+										<DataGridTextColumn Header="Name" Binding="{Binding Name}"/>										
+										<DataGridTextColumn Header="Version" Binding="{Binding Version}"/>
+										<DataGridTextColumn Header="Publisher" Binding="{Binding Publisher}"/>
+										<DataGridTextColumn Header="Language" Binding="{Binding Language}"/>									
+									</DataGrid.Columns>
+								</DataGrid>
+							</Grid>		
+						</TabItem>
+						
+						<TabItem Header="Operating System" Margin="0,0,0,0" FontSize="12">
+							<Grid Background="CornFlowerBlue">
+								<DataGrid SelectionMode="Single"  Name="Datagrid_OS"  ItemsSource="{Binding}"  Margin="2,2,2,2" >
+									<DataGrid.Columns>				
+										<DataGridTextColumn Header="Name" Binding="{Binding Name}"/>																			
+										<DataGridTextColumn Header="Description" Binding="{Binding Description}"/>	
+										<DataGridTextColumn Header="Platform" Binding="{Binding Platform}"/>
+										<DataGridTextColumn Header="Build" Binding="{Binding Build}"/>	
+										<DataGridTextColumn Header="OSType" Binding="{Binding OSType}"/>	
+										<DataGridTextColumn Header="Flags" Binding="{Binding Flags}"/>	
+										<DataGridTextColumn Header="Enable" Binding="{Binding Enable}"/>										
+									</DataGrid.Columns>
+								</DataGrid>
+							</Grid>		
+						</TabItem>							
+
+						<TabItem Header="Language packs" Margin="0,0,0,0">											
+							<Grid Background="CornFlowerBlue">
+								<DataGrid SelectionMode="Single" Name="DataGrid_MUIs"  ItemsSource="{Binding}"  Margin="2,2,2,2" >
+									<DataGrid.Columns>				
+										<DataGridTextColumn Header="Language" Binding="{Binding Language}"/>																			
+										<DataGridTextColumn Header="Name" Binding="{Binding Name}"/>	
+										<DataGridTextColumn Header="Version" Binding="{Binding Version}"/>
+									</DataGrid.Columns>
+								</DataGrid>
+							</Grid>
+						</TabItem>					
+
+						<TabItem Header="Packages" Margin="0,0,0,0" FontSize="12">
+							<Grid Background="CornFlowerBlue">
+								<DataGrid SelectionMode="Single"  Name="Datagrid_Packages"  ItemsSource="{Binding}"  Margin="2,2,2,2" >
+									<DataGrid.Columns>				
+										<DataGridTextColumn Header="Name" Binding="{Binding Name}"/>																			
+										<DataGridTextColumn Header="PackageType" Binding="{Binding PackageType}"/>	
+										<DataGridTextColumn Header="Architecture" Binding="{Binding Architecture}"/>
+										<DataGridTextColumn Header="Language" Binding="{Binding Language}"/>	
+										<DataGridTextColumn Header="Version" Binding="{Binding Version}"/>										
+									</DataGrid.Columns>
+								</DataGrid>
+							</Grid>		
+						</TabItem>						
+														
+						<TabItem Header="Drivers" Margin="0,0,0,0" FontSize="12">
+							<Grid Background="CornFlowerBlue">
+								<DataGrid SelectionMode="Single"  Name="Datagrid_Drivers"  ItemsSource="{Binding}"  Margin="2,2,2,2" >
+									<DataGrid.Columns>				
+										<DataGridTextColumn Header="Name" Binding="{Binding Name}"/>																			
+										<DataGridTextColumn Header="Manufacturer" Binding="{Binding Manufacturer}"/>	
+										<DataGridTextColumn Header="Version" Binding="{Binding Version}"/>
+										<DataGridTextColumn Header="Date" Binding="{Binding Date}"/>	
+										<DataGridTextColumn Header="Platform" Binding="{Binding Platform}"/>	
+										<DataGridTextColumn Header="Class" Binding="{Binding Class}"/>	
+										<DataGridTextColumn Header="Enable" Binding="{Binding Enable}"/>											
+									</DataGrid.Columns>
+								</DataGrid>
+							</Grid>								
+						</TabItem>		
+
+						<TabItem Header="Medias" Margin="0,0,0,0" FontSize="12">
+							<Grid Background="CornFlowerBlue">
+								<DataGrid SelectionMode="Single"  Name="Datagrid_Media"  ItemsSource="{Binding}"  Margin="2,2,2,2" >
+									<DataGrid.Columns>				
+										<DataGridTextColumn Header="Name" Binding="{Binding Name}"/>																			
+										<DataGridTextColumn Header="Root" Binding="{Binding Root}"/>	
+										<DataGridTextColumn Header="Profile" Binding="{Binding SelectionProfile}"/>
+										<DataGridTextColumn Header="Support x86" Binding="{Binding Supportx86}"/>
+										<DataGridTextColumn Header="Support x64" Binding="{Binding Supportx64}"/>
+										<DataGridTextColumn Header="ISO name" Binding="{Binding ISOname}"/>										
+									</DataGrid.Columns>
+								</DataGrid>
+							</Grid>								
+						</TabItem>	
+					</TabControl>
+				</StackPanel>
+
+				<StackPanel  Margin="0,5,0,0">
+					<GroupBox Header="Actions"  Margin="5,0,0,0" Height="290" BorderBrush="CornFlowerBlue" Width="70">		
+						<StackPanel HorizontalAlignment="Center" Orientation="Vertical" >														
+								<Button x:Name="Update_BTN" ToolTip="Update the Deployment Share" Margin="0,10,0,0" Background="#6bf2be ">
+									<StackPanel Orientation="Horizontal">
+										<Rectangle Width="25" Height="25" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}" >
+											<Rectangle.OpacityMask>
+												<VisualBrush Stretch="Fill" Visual="{StaticResource appbar_monitor_to}"/>
+											</Rectangle.OpacityMask>
+										</Rectangle>
+									</StackPanel>
+								</Button>								
+								
+								<Button x:Name="Add_item_BTN" Margin="0,10,0,0" Background="#f8ddb1">
+									<StackPanel Orientation="Horizontal">
+										<Rectangle Width="25" Height="25" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+											<Rectangle.OpacityMask>
+												<VisualBrush Stretch="Fill" Visual="{StaticResource appbar_add}" />
+											</Rectangle.OpacityMask>
+										</Rectangle>
+									</StackPanel>
+								</Button>
+								
+								<Button x:Name="Modify_item_BTN" Margin="0,10,0,0" Background="#f8ddb1">
+									<StackPanel Orientation="Horizontal">
+										<Rectangle Width="25" Height="25" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+											<Rectangle.OpacityMask>
+												<VisualBrush Stretch="Fill" Visual="{StaticResource appbar_edit_box}" />
+											</Rectangle.OpacityMask>
+										</Rectangle>
+									</StackPanel>
+								</Button>								
+								
+								<Button x:Name="Remove_item_BTN" Margin="0,10,0,0" Background="#f8ddb1">
+									<StackPanel Orientation="Horizontal">
+										<Rectangle Width="25" Height="25" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+											<Rectangle.OpacityMask>
+												<VisualBrush Stretch="Fill" Visual="{StaticResource appbar_delete}" />
+											</Rectangle.OpacityMask>
+										</Rectangle>
+									</StackPanel>
+								</Button>								
+
+								<Button x:Name="Refresh_btn" Margin="0,10,0,0" Background="#e0fcf1">
+									<StackPanel Orientation="Horizontal">
+										<Rectangle Width="25" Height="25" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+											<Rectangle.OpacityMask>
+												<VisualBrush Stretch="Fill" Visual="{StaticResource appbar_refresh}" />
+											</Rectangle.OpacityMask>
+										</Rectangle>
+									</StackPanel>
+								</Button>			
+						</StackPanel>		
+					</GroupBox>						
+
+
+
+
+					
+				</StackPanel>				
+
+			</StackPanel>
+
+		
+
+
+		
+
+		</StackPanel>		
+
+    </Grid>
+</Controls:MetroWindow>        
